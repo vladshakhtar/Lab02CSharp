@@ -1,0 +1,46 @@
+﻿<Window x:Class="Lab02Stoliarov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab02Stoliarov"
+        mc:Ignorable="d"
+        Title="Person Information" Height="450" Width="800">
+
+    <Window.DataContext>
+        <local:PersonViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!-- FirstName Label and TextBox -->
+        <Label Grid.Row="0" Content="First Name :" Margin="5"/>
+        <TextBox Grid.Row="1" Margin="5" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- LastName Label and TextBox -->
+        <Label Grid.Row="2" Content="Last Name :" Margin="5"/>
+        <TextBox Grid.Row="3" Margin="5" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- EmailAddress Label and TextBox -->
+        <Label Grid.Row="4" Content="Email Address :" Margin="5"/>
+        <TextBox Grid.Row="5" Margin="5" Text="{Binding EmailAddress, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- DateOfBirth Label and DatePicker -->
+        <Label Grid.Row="6" Content="Date of Birth :" Margin="5"/>
+        <DatePicker Grid.Row="7" Margin="5" SelectedDate="{Binding DateOfBirth}"/>
+
+        <!-- Proceed Button -->
+        <Button Grid.Row="8" Margin="5" Content="Proceed" Command="{Binding ProceedCommand}" IsEnabled="{Binding CanProceed}"/>
+    </Grid>
+</Window>
